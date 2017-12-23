@@ -16,8 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
+from home.views import base
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', base),
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^home/', include('home.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^budget/', include('budget.urls')),

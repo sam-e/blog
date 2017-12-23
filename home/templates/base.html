@@ -3,7 +3,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> 
+<!--[if gt IE 8]><!-->
 <html class="no-js" lang=""> <!--<![endif]-->
  <head>
     <meta charset="utf-8">
@@ -37,13 +37,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!--- ALERT MANUAL ENTRY HERE-->
                     <!--- Tag the active page "active" -->
-                    <li class="active"><a href="{% url 'base' %}">Home</a></li>
+                    <li><a href="{% url 'login' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'post_list' %}">Blog</a></li>
-                    <li><a href="#">Stuff</a></li>
-                    <li><a href="#">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'login' %}">Login Here</a></li>
+                    {% endif %}
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">Register<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
                             <div class="col-lg-12">
                                 <div class="text-center">
@@ -74,17 +78,19 @@
                             </div>
                         </ul>
                     </li>
+                    {% if not user.is_authenticated %}
                     <li class="dropdown">
-                        <a href="http://phpoll.com/login" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
                             <div class="col-lg-12">
                                 <div class="text-center">
                                     <h3><b>Log In</b></h3>
                                 </div>
-                                <form id="ajax-login-form" action="#" method="post" role="form" autocomplete="off">
+                                <form method="post" autocomplete="off">
+                                    {% csrf_token %}
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
@@ -97,7 +103,7 @@
                                                 <label for="remember"> Remember Me</label>
                                             </div>
                                             <div class="col-xs-5 pull-right">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control myloginbtn btn-default" value="Log In">
+                                                <input type="submit" tabindex="4" class="form-control myloginbtn btn-default" value="Log In">
                                             </div>
                                          </div>
                                     </div>
@@ -115,11 +121,12 @@
                             </div>
                         </ul>
                     </li>
-                </ul>
+                    {% endif %}
+                  </ul>
             </div>
         </div>
     </nav>
-    <!--- Navbar End --> 
+    <!--- Navbar End -->
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     {% block content %}
@@ -148,4 +155,4 @@
     </footer>
     <!--- Footer end -->
  </body>
-</html>	
+</html>

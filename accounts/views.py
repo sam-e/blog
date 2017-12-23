@@ -2,7 +2,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-def base(request):
+def login_base(request):
     return render(request, 'home/home_page.html')
 
 def about(request):

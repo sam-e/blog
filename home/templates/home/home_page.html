@@ -1,6 +1,6 @@
-{% extends 'home/base.html' %}  
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% block content %} 
+{% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <!--- Start Slider -->
     <div id="myCarousel" class ="carousel slide" data-ride="carousel">
@@ -13,7 +13,11 @@
             <div class="item active">
                 <img src="{% static 'home/img/mountains.png' %}">
                 <div class="carousel-caption">
-                    <h1>add a caption</h1>
+                    {% if user.is_authenticated %}
+                      <h1>Welcome, {{ user.username }}</h1>
+                    {% else %}
+                      <h1>Welcome, Login Above</h1>
+                    {% endif %}
                     <br>
                     <button type="button" class="btn bt-default">Button Text</Button>
                 </div>
@@ -34,7 +38,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div> 
+    </div>
     <!--- End Slider -->
 
     <div class="container text-center">
@@ -74,7 +78,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <h4>Built with Sass</h4>
                 <p>Thanks for this awesome course. Please can you do a tutorial on how to create a simple login/logout system in the simplest method possible. Thanks a lot.﻿</p>
-                
+
                 <p>The slider width isn't 100% on a 21.5-inch iMac. Anyone else having problems with that? I found a solution but I don't know if it's stable enough. Just make a class in CSS that sets the carousel class to 100% width.   </p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -84,7 +88,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <h4>And Less</h4>
                 <p>Thanks for this awesome course. Please can you do a tutorial on how to create a simple login/logout system in the simplest method possible. Thanks a lot.﻿</p>
-                
+
                 <p>The slider width isn't 100% on a 21.5-inch iMac. Anyone else having problems with that? I found a solution but I don't know if it's stable enough. Just make a class in CSS that sets the carousel class to 100% width.   </p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -99,10 +103,10 @@
                 <h4><a href="#hidden" data-toggle="collapse">Collapsibe Container</a></h4>
                 <div id="hidden" class="collapse">
                     Thanks for this awesome course. Please can you do a tutorial on how to create a simple login/logout system in the simplest method possible. Thanks a lot.﻿</p>
-                
-                    The slider width isn't 100% on a 21.5-inch iMac. Anyone else having problems with that? I found a solution but I don't know if it's stable enough. Just make a class in CSS that sets the carousel class to 100% width.  
+
+                    The slider width isn't 100% on a 21.5-inch iMac. Anyone else having problems with that? I found a solution but I don't know if it's stable enough. Just make a class in CSS that sets the carousel class to 100% width.
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
 {% endblock %}
