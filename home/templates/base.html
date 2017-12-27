@@ -37,12 +37,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!--- ALERT MANUAL ENTRY HERE-->
                     <!--- Tag the active page "active" -->
-                      <li><a href="{% url 'base' %}">Home</a></li>
-                      <li><a href="{% url 'about' %}">About</a></li>
-                      <li><a href="{% url 'post_list' %}">Blog</a></li>
+                      <li class="{% ifequal request.path '/home/' %} active {% endifequal %}"><a href="{% url 'base' %}">Home</a></li>
+                      <li class="{% ifequal request.path '/home/about/' %} active {% endifequal %}"><a href="{% url 'about' %}">About</a></li>
+                      <li class="{% ifequal request.path '/blog/' %} active {% endifequal %}"><a href="{% url 'post_list' %}">Blog</a></li>
                       {# Check for logged in user if !true display register #}
                       {% if not user.is_authenticated %}
-                      <li><a href="{% url 'register' %}">Register</a></li>
+                      <li class="{% ifequal request.path '/home/register/' %} active {% endifequal %}"><a href="{% url 'register' %}">Register</a></li>
                       {% endif %}
                       {% block contact %}
                         {% include 'contact.html' %}
