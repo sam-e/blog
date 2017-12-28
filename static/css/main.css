@@ -5,7 +5,7 @@
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
-	background-color: #5E4485;
+	background-color: #00638b;
 	color: #FFF;
 	padding: 1% 0;
 	font-size: 1.2em;
@@ -15,20 +15,22 @@
 .navbar-brand {
 	float: left;
 	min-height: 55px;
-	padding: 0 15px 5px;
 }
 
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
 	color: #FFF;
-	background-color: #5E4485;
+	background-color: #00638b;
 }
-.navbar-inverse .navbar-nav li a {
 
+
+.navbar-inverse .navbar-nav li a {
+	color: #b2b2b2;
+	background-color: #00638b;
 }
 
 ul.dropdown-lr {
 	width: 300px;
-	background-color: #5E4485;
+	background-color: #00638b;
 	border-style: outset;
 	border-color: white;
 }
@@ -36,7 +38,7 @@ ul.dropdown-lr {
 .myloginbtn {
 	font-size: 12px;
 	color: #FFF;
-	background: #5E4485;
+	background: #00638b;
 
 }
 
@@ -50,7 +52,7 @@ ul.dropdown-lr {
 	font-size: 18px;
 	color: #FFF;
 	padding: 12px 22px;
-	background: #5E4485;
+	background: #00638b;
 	border: 2px solid #FFF;
 }
 
@@ -65,7 +67,7 @@ ul.dropdown-lr {
 
 footer {
 	width: 100%;
-	background-color: #5E4485;
+	background-color: #00638b;
 	padding: 3%;
 	color: #FFF;
 }
