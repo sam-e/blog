@@ -5,11 +5,15 @@
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
-	background-color: #00638b;
-	color: #FFF;
+	background-color: #3F729B;
+
 	padding: 1% 0;
 	font-size: 1.2em;
 	border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
 }
 
 .navbar-brand {
@@ -17,29 +21,19 @@
 	min-height: 55px;
 }
 
-.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
-	color: #FFF;
-	background-color: #00638b;
-}
-
-
-.navbar-inverse .navbar-nav li a {
-	color: #b2b2b2;
-	background-color: #00638b;
-}
-
-ul.dropdown-lr {
-	width: 300px;
-	background-color: #00638b;
+.dropdown-menu {
+	width: 300px !important;
+	background-color: #3F729B;
+   padding: 10px 15px 10px 15px;
 	border-style: outset;
 	border-color: white;
+	color: #FFF;
 }
 
 .myloginbtn {
 	font-size: 12px;
 	color: #FFF;
-	background: #00638b;
-
+	background: #3F729B;
 }
 
 .carousel-caption {
@@ -52,7 +46,7 @@ ul.dropdown-lr {
 	font-size: 18px;
 	color: #FFF;
 	padding: 12px 22px;
-	background: #00638b;
+	background: #3F729B;
 	border: 2px solid #FFF;
 }
 
@@ -67,21 +61,12 @@ ul.dropdown-lr {
 
 footer {
 	width: 100%;
-	background-color: #00638b;
+	background-color: #3F729B;
 	padding: 3%;
 	color: #FFF;
 }
 
-.fa {
-	padding: 15px;
-	font-size: 25px;
-	color: #FFF;
-	}
 
-.fa:hover {
-	color: #D5D5D5;
-	text-decoration: none;
-}
 
 @media (max-width: 900px) {
 	.fa {
