@@ -22,17 +22,22 @@
 	background-color: #00638b;
 }
 
-
 .navbar-inverse .navbar-nav li a {
 	color: #b2b2b2;
 	background-color: #00638b;
 }
 
-ul.dropdown-lr {
-	width: 300px;
+.dropdown-menu {
+	width: 300px !important;
 	background-color: #00638b;
+   padding: 10px 15px 10px 15px;
 	border-style: outset;
 	border-color: white;
+	color: #FFF;
+}
+
+.dropdown-menu  a {
+	color: #b2b2b2;
 }
 
 .myloginbtn {

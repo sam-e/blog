@@ -10,7 +10,7 @@
    </a>
    <div class="dropdown-menu dropdown-menu-right animated slideInRight" aria-labelledby="navbarDropdownMenuLink">
       <div class="text-center">
-         <h3><b>Log In</b></h3>
+         <h3><b>Log In, or  <a href="{% url 'register' %}">Sign Up</a></b></h3>
       </div>
       <form method="post" action="{% url 'login' %}" autocomplete="off">
          {% csrf_token %}
