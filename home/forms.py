@@ -7,8 +7,8 @@ from django.core.exceptions import ValidationError
 class CustomUserCreationForm(forms.Form):
     username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
     email = forms.EmailField(label='Enter email')
-    password1 = forms.CharField(label='Enter password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+    password = forms.CharField(label='Enter password', widget=forms.PasswordInput)
+    confirmpassword = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
 
     def clean_username(self):
         username = self.cleaned_data['username'].lower()
@@ -24,19 +24,21 @@ class CustomUserCreationForm(forms.Form):
             raise  ValidationError("Email already exists")
         return email
 
-    def clean_password2(self):
-        password1 = self.cleaned_data.get('password1')
-        password2 = self.cleaned_data.get('password2')
+    def clean_confirmpassword(self):
+        password = self.cleaned_data.get('password')
+        confirmpassword = self.cleaned_data.get('confirmpassword')
 
-        if password1 and password2 and password1 != password2:
+        if password and confirmpassword and password != confirmpassword:
             raise ValidationError("Password's do not match")
 
-        return password2
+        return confirmpassword
 
     def save(self, commit=True):
         user = User.objects.create_user(
             self.cleaned_data['username'],
             self.cleaned_data['email'],
-            self.cleaned_data['password1']
+            self.cleaned_data['password']
         )
+        if commit:
+            user.save()
         return user
