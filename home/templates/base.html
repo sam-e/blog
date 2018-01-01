@@ -6,7 +6,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="description" content="">
    <meta name="author" content="">
-   <link rel="icon" href="../../../../favicon.ico">
 
    <title>Sambos World</title>
 
@@ -41,7 +40,7 @@
             </li>
             {# Check for logged in user if !true display register #}
             {% if not user.is_authenticated %}
-               <li class="{% ifequal request.path '/home/register/' %} nav-item active {% endifequal %}">
+               <li class="{% ifequal request.path '/accounts/' %} nav-item active {% endifequal %}">
                   <a class="nav-link" href="{% url 'register' %}">Register</a>
                </li>
             {% endif %}
@@ -51,7 +50,7 @@
             {% endblock %}
             {# Check for logged in user if true display logout #}
             {% if user.is_authenticated %}
-               <li class="{% ifequal request.path '/home/register/' %} nav-item active {% endifequal %}">
+               <li class="{% ifequal request.path '/home/logout/' %} nav-item active {% endifequal %}">
                   <a class="nav-link disabled" href="{% url 'logout' %}">Logout</a>
                </li>
             {% endif %}
