@@ -2,5 +2,5 @@
 *~
 __pycache__
 env
-db.sqlite2
+db.sqlite3
 .DS_Store
