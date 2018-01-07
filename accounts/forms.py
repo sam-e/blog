@@ -33,6 +33,7 @@ class CustomUserCreationForm(forms.Form):
 
         return confirmpassword
 
+<<<<<<< HEAD
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name'].lower()
         r = User.objects.filter(first_name=first_name)
@@ -47,6 +48,8 @@ class CustomUserCreationForm(forms.Form):
             raise  ValidationError("Username already exists")
         return first_name
 
+=======
+>>>>>>> 96c979f4222ce75b09611ebba7afe828e513e75d
     def save(self, commit=True):
         user = User.objects.create_user(
             self.cleaned_data['username'],
