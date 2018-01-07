@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="container text-center">
+   <div class="col-sm-6">
+      <div class="text-center">
+         <h3><b>Profile Page for {{ user.first_name }} {{ user.last_name }}</b></h3>
+      </div>
+
+   </div>
+</div>
+{% endblock %}

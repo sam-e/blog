@@ -2,7 +2,15 @@
    Author's custom styles
    ========================================================================== */
 
-.navbar {
+body {
+	padding-top: 80px;
+}
+
+.container {
+
+}
+
+	.navbar {
 	margin-bottom: 0;
 	border-radius: 0;
 	background-color: #00638b;
@@ -59,10 +67,6 @@
 	padding: 12px 22px;
 	background: #00638b;
 	border: 2px solid #FFF;
-}
-
-.container {
-
 }
 
 #icon {
