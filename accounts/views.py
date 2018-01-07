@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm
+from .forms import RegistrationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
 # Create your views here.
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
 
-            return redirect('register')
+            return redirect('base')
 
     else:
-        form = CustomUserCreationForm()
-
-    return render(request, 'accounts/register_page.html', {'form': form})
+        form = RegistrationForm()
+        return render(request, 'accounts/register_page.html', {'form': form})
 
 def view_profile(request):
     args = { 'user': request.user }
@@ -28,9 +27,8 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
 
-        return redirect('view_profile')
+        return redirect('accounts/editprofile_page.html')
 
     else:
         form = UserChangeForm(instance=request.user)
-        args =  { 'form': form }
-        return render(request, 'accounts/editprofile_page.html', args)
+        return render(request, 'accounts/editprofile_page.html', {'form': form})
