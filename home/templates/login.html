@@ -5,50 +5,50 @@
 {# Render login.html if user not logged in #}
 {% if not user.is_authenticated %}
 <li class="nav-item dropdown">
-   <a class="nav-link dropdown-toggle" href="{% url 'login' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Log In
-   </a>
-   <div class="dropdown-menu dropdown-menu-right animated slideInRight" aria-labelledby="navbarDropdownMenuLink">
-      <div class="text-center">
-         <h3><b>Log In, or  <a href="{% url 'register' %}">Sign Up</a></b></h3>
+  <a class="nav-link dropdown-toggle" href="{% url 'login' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Log In
+  </a>
+  <div class="dropdown-menu dropdown-menu-right animated slideInRight" aria-labelledby="navbarDropdownMenuLink">
+    <div class="text-center">
+      <h3><b>Log In, or  <a href="{% url 'register' %}">Sign Up</a></b></h3>
+    </div>
+    <form method="post" action="{% url 'login' %}" autocomplete="off">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" autocomplete="off">
       </div>
-      <form method="post" action="{% url 'login' %}" autocomplete="off">
-         {% csrf_token %}
-         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" autocomplete="off">
-         </div>
-         <div class="form-group">
-            <div class "row">
-               <label for="password">Password</label>
-               <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+      <div class="form-group">
+        <div class "row">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <div class="text-right">
+              <a href="#" tabindex="5" class="forgot-password">
+                <small>Forgot Password?</small>
+              </a>
             </div>
-            <div class="form-group">
-               <div class="col-lg-12">
-                  <div class="text-right">
-                     <a href="#" tabindex="5" class="forgot-password">
-                        <small>Forgot Password?</small>
-                     </a>
-                  </div>
-               </div>
-            </div>
-            <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
-         </div>
-         <div class="form-group">
-            <div class="row">
-               <div class="col-sm-5">
-                  <input type="submit" class="form-control myloginbtn" value="Log In">
-               </div>
-               <div class="col-sm-7 text-right">
-                  <input type="checkbox" name="remember" id="remember">
-                  <label for="remember">
-                     <small>Remember Me</small>
-                  </label>
-               </div>
-            </div>
-         </div>
-      </form>
-   </div>
+          </div>
+        </div>
+        <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-5">
+            <input type="submit" class="form-control myloginbtn" value="Log In">
+          </div>
+          <div class="col-sm-7 text-right">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">
+              <small>Remember Me</small>
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </li>
 {% endif %}
 {% endblock %}

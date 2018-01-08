@@ -2,31 +2,31 @@
 {% load staticfiles %}
 {# Render the drop down menu for the contact form #}
 <li class="nav-item dropdown">
-   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Contact Us
-   </a>
-   <div class="dropdown-menu dropdown-menu-right animated flipInX" aria-labelledby="navbarDropdownMenuLink">
-      <div class="text-center">
-         <h3><b>Contact Us</b></h3>
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Contact Us
+  </a>
+  <div class="dropdown-menu dropdown-menu-right animated flipInX" aria-labelledby="navbarDropdownMenuLink">
+    <div class="text-center">
+      <h3><b>Contact Us</b></h3>
+    </div>
+    <form id="ajax-register-form" method="post" action="" role="form" autocomplete="off">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
       </div>
-      <form id="ajax-register-form" method="post" action="" role="form" autocomplete="off">
-         {% csrf_token %}
-         <div class="form-group">
-            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-         </div>
-         <div class="form-group">
-            <input type="password" name="password1" id="password1" tabindex="2" class="form-control" placeholder="Password">
-         </div>
-         <div class="form-group">
-            <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Type Message">
-         </div>
-         <div class="form-group">
-            <div class="col-xs-6 col-xs-offset-3">
-               <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control myloginbtn btn-default" value="Send Now">
-            </div>
-         </div>
-         <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
-      </form>
-   </div>
+      <div class="form-group">
+        <input type="password" name="password1" id="password1" tabindex="2" class="form-control" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Type Message">
+      </div>
+      <div class="form-group">
+        <div class="col-xs-6 col-xs-offset-3">
+          <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control myloginbtn btn-default" value="Send Now">
+        </div>
+      </div>
+      <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+    </form>
+  </div>
 </li>
 {% endblock %}
