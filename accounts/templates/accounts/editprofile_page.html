@@ -4,9 +4,16 @@
 <div class="container text-center">
   <div class="col-sm-6">
     <div class="text-center">
-      <form method="post">
+      <form id="ajax-register-form" method="post" action="{% url 'edit_profile' %}" role="form" autocomplete="off">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+          <input type="text" name="city" id="city" tabindex="1" class="form-control" placeholder="City" value="">
+        </div>
+        <ul>
+          <li>Username: {{ user.username }}</li>
+          <li>Location: {{ user.userprofile.description }}</li>
+          <li>Birth Date: {{ user.userprofile.city }}</li>
+        </ul>
         <button type="submit">Submit</button>
       </div>
   </div>

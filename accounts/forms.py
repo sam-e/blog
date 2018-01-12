@@ -27,4 +27,17 @@ class RegistrationForm(UserCreationForm):
       if commit:
          user.save()
 
-         return user
+      return user
+
+class ProfileForm(forms.ModelForm):
+   class Meta:
+      model = UserProfile
+      fields = ('description', 'city', 'website', 'phone')
+
+
+   def save(self, user=None):
+      user_profile = super(ProfileForm, self).save(commit=False)
+      if user:
+         user_profile.user = user
+      user_profile.save()
+      return user_profile
